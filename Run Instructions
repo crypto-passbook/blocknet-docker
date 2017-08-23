@@ -1,6 +1,6 @@
 Assuming Docker is installed
 
 1. Go to the directory where the Dockerfile is present
-2. In terminal type "docker build -t blocknetdx"
+2. In terminal type "docker build -t blocknetdx ."
 3. Next type "docker run -it blocknetdx" (This will open an interactive terminal)
 4. In the terminal, type blocknetdxd to start node
