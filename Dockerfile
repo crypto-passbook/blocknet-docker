@@ -18,4 +18,21 @@ RUN apt-get -y install libdb4.8-dev libdb4.8++-dev
 
 RUN apt-get -y install libminiupnpc-dev
 
+RUN apt-get install bsdmainutils
+
+RUN wget http://miniupnp.tuxfamily.org/files/download.php?file=miniupnpc-1.6.tar.gz -O /miniupnpc-1.6.tar.gz
+RUN tar -xzvf /miniupnpc-1.6.tar.gz
+WORKDIR /miniupnpc-1.6
+RUN make
+RUN make install
+
+WORKDIR /BlockDX
+RUN ./autogen.sh
+RUN ./configure
+RUN make
+RUN make install
+
+WORKDIR /
+ADD blocknetdx.conf /root/.blocknetdx/blocknetdx.conf
+
 
