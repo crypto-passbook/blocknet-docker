@@ -33,7 +33,8 @@ RUN make
 RUN make install
 
 WORKDIR /
-ADD blocknetdx.conf /root/.blocknetdx/blocknetdx.conf
+
+CMD ["blocknetdxd"]
 
 
 
