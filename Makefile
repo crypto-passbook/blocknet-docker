@@ -1,3 +1,4 @@
+BLOCKNETDX_DIR ?= $(HOME)/.blocknetdx
 CONF_FILE ?= $(PWD)/blocknetdx.conf
 
 default: build
@@ -11,7 +12,9 @@ build: check-docker
 
 run-server:
 	@echo "Running blocknetdx in docker"
-	docker run -d -v "$(CONF_FILE):/root/.blocknetdx/blocknetdx.conf" --name blocknetdx blocknetdx
+	@mkdir -p $(BLOCKNETDX_DIR)
+	@cp $(CONF_FILE) $(BLOCKNETDX_DIR)/
+	docker run -d -v "$(BLOCKNETDX_DIR):/root/.blocknetdx" --name blocknetdx blocknetdx
 
 stop-server:
 	docker rm -f blocknetdx
