@@ -10,11 +10,10 @@ check-docker:
 build: check-docker
 	docker build -t blocknetdx .
 
-run-server:
+run:
 	@echo "Running blocknetdx in docker"
-	@mkdir -p $(BLOCKNETDX_DIR)
-	@cp $(CONF_FILE) $(BLOCKNETDX_DIR)/
+	@if [ ! -d $(BLOCKNETDX_DIR) ]; then echo "first time setup"; mkdir -p $(BLOCKNETDX_DIR); cp $(CONF_FILE) $(BLOCKNETDX_DIR)/blocknetdx.conf; fi
 	docker run -d -v "$(BLOCKNETDX_DIR):/root/.blocknetdx" --name blocknetdx blocknetdx
 
-stop-server:
+stop:
 	docker rm -f blocknetdx

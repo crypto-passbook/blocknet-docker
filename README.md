@@ -10,7 +10,7 @@ make
 
 ### 2. Run blocknetdx server
 ```
-make run-server
+make run
 ```
 
 ### 3. Run cli command
@@ -20,5 +20,5 @@ docker exec blocknetdx blocknetdx-cli <command> [args]
 
 ### 4. Stop Server
 ```
-make stop-server
+make stop
 ```
